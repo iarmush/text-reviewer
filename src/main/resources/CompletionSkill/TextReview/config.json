@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "description": "Corrects the message according to the specified parameters",
+  "type": "completion",
+  "completion": {
+    "max_tokens": 1000,
+    "temperature": 0.9,
+    "top_p": 0.0,
+    "presence_penalty": 0.0,
+    "frequency_penalty": 0.0
+  },
+  "input": {
+    "parameters": [
+      {
+        "name": "body",
+        "description": "Text body of the message"
+      },
+      {
+        "name": "messageType",
+        "description": "Type of message"
+      },
+      {
+        "name": "type",
+        "description": "Message type"
+      },
+      {
+        "name": "from",
+        "description": "from"
+      },
+      {
+        "name": "to",
+        "description": "to"
+      },
+      {
+        "name": "isOfficial",
+        "description": "Is official",
+        "defaultValue": true
+      },
+      {
+        "name": "beCreative",
+        "description": "Be creative",
+        "defaultValue": false
+      }
+    ]
+  }
+}
