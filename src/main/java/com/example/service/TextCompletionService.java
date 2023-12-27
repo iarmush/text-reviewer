@@ -6,7 +6,6 @@ import com.microsoft.semantickernel.orchestration.SKContext;
 import com.microsoft.semantickernel.textcompletion.CompletionSKFunction;
 import jakarta.enterprise.context.ApplicationScoped;
 
-
 @ApplicationScoped
 public class TextCompletionService {
 
@@ -18,12 +17,13 @@ public class TextCompletionService {
 
     public String review(Text text) {
         SKContext reviewerContext = SKBuilders.context().build();
-        reviewerContext.setVariable("body", text.body());
+        reviewerContext.setVariable("input", text.input());
         reviewerContext.setVariable("messageType", text.messageType().getMessageTypeName());
         reviewerContext.setVariable("from", text.from().getTittleName());
         reviewerContext.setVariable("to", text.to().getTittleName());
-        reviewerContext.setVariable("isOfficial", String.valueOf(text.isOfficial()));
-        reviewerContext.setVariable("beCreative", String.valueOf(text.beCreative()));
+        reviewerContext.setVariable("isConcise", String.valueOf(text.optionalFeatures().isConcise()));
+        reviewerContext.setVariable("isCreative", String.valueOf(text.optionalFeatures().isCreative()));
+        reviewerContext.setVariable("isOfficial", String.valueOf(text.optionalFeatures().isOfficial()));
 
         return completionSKFunction.invokeAsync(reviewerContext)
                 .block().getResult();

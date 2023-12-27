@@ -1,6 +1,5 @@
 package com.example.config;
 
-
 import com.microsoft.semantickernel.SKBuilders;
 import com.microsoft.semantickernel.exceptions.ConfigurationException;
 import com.microsoft.semantickernel.textcompletion.CompletionSKFunction;
@@ -10,7 +9,7 @@ public class CompletionFunctionFactory {
 
     private static final String GPT_3_5_TURBO = "gpt-3.5-turbo";
     private static final String FUNCTION_NAME = "TextReview";
-    private static final String SKILL_NAME = "CompletionSkill";
+    private static final String SKILL_NAME = "TextReviewSkill";
 
     private final OpenAIClientFactory openAIClientFactory;
 

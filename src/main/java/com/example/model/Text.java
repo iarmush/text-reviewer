@@ -1,7 +1,7 @@
 package com.example.model;
 
-public record Text(String body, Tittle from, Tittle to, MessageType messageType,
-                   boolean isOfficial, boolean beCreative) {
+public record Text(String input, Tittle from, Tittle to, MessageType messageType,
+                   OptionalFeatures optionalFeatures) {
 
     public enum Tittle {
         SE("Software Engineer"),
@@ -31,6 +31,9 @@ public record Text(String body, Tittle from, Tittle to, MessageType messageType,
         public String getMessageTypeName() {
             return messageTypeName;
         }
+    }
+
+    public record OptionalFeatures(boolean isConcise, boolean isCreative, boolean isOfficial) {
     }
 }
 
